@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>USPS</title>
+</head>
+<body>
+<nav class="navbar is-light">
+    <div class="navbar-brand">
+        <a href="index.html">
+        <img src="img/USPS_logo.png">
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start">
+            <a href="index.html" class="navbar-item">Accueil</a>
+            <a href="" class="navbar-item">USPS</a>
+            <a href="" class="navbar-item">Bureau</a>
+            <a href="adherents.html" class="navbar-item">Adhérents</a>
+            <a href="" class="navbar-item">Status & Reglements</a>
+
+        </div>
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a href="" class="button is-success">
+                        <strong>Sign up</strong>
+                    </a>
+                    <a class="button is-light">
+                        Log In
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="section">
+    <div class="container">
+        <h1 class="title is-2 has-text-centered">Liste des adhérents...</h1>
+        <div id="adherents">
+
+                <table class="table is-bordered is-striped is-fullwidth">
+                    <thead>
+                    <tr  >
+                        <th class="has-text-centered">#</th>
+                        <th class="has-text-centered">Nom(s)</th>
+                        <th class="has-text-centered">Prénom(s)</th>
+                        <th class="has-text-centered">Tél. 1</th>
+                        <th class="has-text-centered">Tél. 2</th>
+                        <th class="has-text-centered">E-mail</th>
+                    </tr>
+                    <tbody>
+                    <tr v-for="(adherent,index) in adherents">
+                        <td class="has-text-centered">{{ index+1}}</td>
+                        <td>{{ adherent.nom }}</td>
+                        <td>{{ adherent.prenom }}</td>
+                        <td class="has-text-centered">{{ adherent.tel1 }}</td>
+                        <td class="has-text-centered">{{ adherent.tel2 }}</td>
+                        <td>{{ adherent.email }}</td>
+                    </tr>
+                    </tbody>
+                    </thead>
+                </table>
+            </div>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+new Vue({
+    el:'#adherents',
+    data:{
+        adherents:[
+            {nom:'AMEKE KANDZA',prenom:'Martial',tel1:'05 30 00 17',tel2:'06 57 57 96',email:'martialkendza@gamil.com'},
+            {nom:'ASSOUME PATINON',prenom:'Yves Saint Laurent',tel1:'06 49 16 64', tel2:'',email:''},
+            {nom:'COMLAN',prenom:'Fréderic',tel1:'02 83 17 91', tel2:'',email:''},
+            {nom:'DASSI SEMAKO',prenom:'Oscar',tel1:'04 40 86 47',tel2:'',email:''},
+            {nom:'DENGUE',prenom:'Ludocvic',tel1:'06 24 71 43',tel2:'',email:'ldengue@yahoo.com'},
+            {nom:'DIOP',prenom:'Stéphane',tel1:'06 26 60 74',tel2:'',email:'s.dioplacombe@gmail.com'},
+            {nom:'DOSSOU',prenom:'Vivien Guerrerro',tel1:'05 39 10 53',tel2:'',email:''},
+            {nom:'DOSSOU',prenom:'Coffi Jean Brice',tel1:'06 95 25 71',tel2:'',email:''},
+            {nom:'DOSSOU KOFFI',prenom:'Patrice', tel1:'06 27 34 39',tel2:'',email:''},
+            {nom:'FOURN',prenom:'Elfi',tel1:'06 20 99 83',tel2:'',email:''},
+            {nom:'IDEDE MAMBOUNDOU',prenom:'Chris',tel1:'',tel2:'',email:''},
+            {nom:'IGNANGA',prenom:'Achille Atch',tel1:'05 72 72 11',tel2:'',email:''},
+            {nom:'MAYI MAYISSA',prenom:'Ghislain',tel1:'02 04 99 55',tel2:'',email:''},
+            {nom:'MBANDINGA NDJIMBI',prenom:'Anse Paterne',tel1:'04 41 87 12',tel2:'',email:''},
+            {nom:'MENDOUME',prenom:'Davy',tel1:'02 03 61 03',tel2:'',email:''},
+            {nom:'MOMBO',prenom:'Jerny Axel',tel1:'05 27 59 37',tel2:'',email:''},
+            {nom:'MOUSSOYI NGOUALA',prenom:'Rufin',tel1:'07 52 76 05',tel2:'06 91 47 46',email:''},
+            {nom:'NDONG',prenom:'Stive',tel1:'04 59 99 00', tel2:'',email:''},
+            {nom:'NGOYE',prenom:'Sylvanus',tel1:'07 43 55 87',tel2:'',email:''},
+            {nom:'NGOYE',prenom:'Paterne',tel1:'07 28 00 88',tel2:'',email:''},
+            {nom:'NZIGHOU',prenom:'Olyvier',tel1:'06 04 98 40',tel2:'07 68 42 85',email:'olyvier.nzighou@gmail.com'},
+            {nom:'PANZOU',prenom:'Marius',tel1:'07 84 02 16', tel2:'',email:''},
+            {nom:'NDJEWE',prenom:'Ismaël',tel1:'07 60 61 62', tel2:'',email:''},
+            {nom:'NDJEMBI',prenom:'Aimé',tel1:'05 30 01 95', tel2:'',email:''},
+            {nom:'SABIN',prenom:'Sly',tel1:'06 28 23 38', tel2:'',email:''},
+            {nom:'NZOUTO',prenom:'Patrick',tel1:'', tel2:'',email:''},
+            {nom:'RAOUTO',prenom:'Franck',tel1:'06 03 69 15', tel2:'',email:''},
+            {nom:'MABIALA',prenom:'Yionel',tel1:'05 86 00 60', tel2:'',email:''},
+            {nom:'ESSONO BIYOGO',prenom:'Joyce Yorrick',tel1:'05 30 03 97', tel2:'',email:''},
+            {nom:'MBOUTSOU',prenom:'Thierry',tel1:'06 97 17 57', tel2:'',email:''},
+            {nom:'DOUGANDAGA',prenom:'Antoine',tel1:'06 20 57 84', tel2:'',email:''},
+            {nom:'MAMBOUNDOU',prenom:'Yohan',tel1:'02 66 91 99', tel2:'',email:''},
+            {nom:'IVORRA BAGAFOU',prenom:'Aymar',tel1:'05 30 03 72', tel2:'',email:''}
+
+
+        ],
+
+    }
+});
+
+</script>
+
+</body>
+</html>

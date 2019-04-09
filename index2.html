@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <title>Todo-App</title>
+</head>
+<body>
+<div class="container ">
+    <div class="section">
+        <div id="todo-app">
+            <h3 class="title is-4 has-text-primary">Todo App</h3>
+            <todo-form @todo-created="addTodo"></todo-form> <br>
+            <todo-list :todos="todos"></todo-list>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+/*--------------------------------------------------------------------------------------------------------------*/
+    Vue.component('todo-form',{
+        template:`
+        <form @submit.prevent="todoEvent">
+            <div class="field">
+                <div class="control">
+                    <input class="input" type="text" placeholder="Add todo..." v-model="newTodo">
+                </div>
+             </div><br>
+             <div class="field">
+                <div class="control">
+                    <button class="button is-primary">Add</button>
+                </div>
+             </div>
+        </form>
+        `,
+        data:function(){
+            return{
+                newTodo:''
+            }
+        },
+        methods:{
+            todoEvent:function(){
+                this.$emit('todo-created',this.newTodo);
+                this.newTodo='';
+            }
+        }
+    });
+/*--------------------------------------------------------------------------------------------------------------*/
+    Vue.component('todo-list',{
+        props:['todos'],
+        template:`
+        <div class="content">
+            <ol type="1">
+                <li v-for="todo in todos">{{ todo }}</li>
+            </ol>
+        </div>
+     `
+ /*-----------------------------------------------------------------------------------------------------------*/
+    })
+    new Vue({
+        el:'#todo-app',
+        data:{
+            todos:[]
+        },
+        methods:{
+            addTodo:function(todo){
+                this.todos.push(todo);
+            }
+        }
+
+    });
+</script>
+</body>
+</html>
